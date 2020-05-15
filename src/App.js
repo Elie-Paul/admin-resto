@@ -7,6 +7,7 @@ import Landing from './components/Landing'
 import Register from './components/Register'
 import Profile from './components/Profile'
 import Commande from './components/Commande'
+import Reservation from './components/Reservation'
 
 import './App.css';
 
@@ -25,6 +26,7 @@ class App extends Component {
           <Route exact path="/login" component={Login} />
           <Route exact path="/profile" component={Profile} />
           <Route exact path="/commande" component={Commande} />
+          <Route exact path="/reservation" component={Reservation} />
         </div>
       </div>
     </Router>

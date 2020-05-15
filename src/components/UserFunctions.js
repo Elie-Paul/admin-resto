@@ -42,9 +42,7 @@ export const getProfile = () => {
         .then(response => {
             console.log(response)
             return response.data
-        })
-        .catch(err => {
-            console.log(err)
+        }) .catch(err => {console.log(err)
         })
 }
 
@@ -58,3 +56,20 @@ export const getCommande = () => {
             console.log(err)
         })
 }
+
+/*    */
+export const postCommande = (newCmd) => {
+  return axios
+    .post("https://pos.globalfoodsoft.com/pos/order/pop", newCmd, {
+      headers: { 
+        "Content-Type": "application/json",
+        Authorization: "4x5dsYmZhY5Vy6o3O"
+       },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};

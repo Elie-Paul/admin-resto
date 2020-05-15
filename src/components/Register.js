@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { register } from './UserFunctions'
+import getCommande from './UserFunctions'
+import axios from 'axios'
 
 class Register extends Component {
     constructor() {
@@ -31,6 +33,30 @@ class Register extends Component {
         register(newUser).then(res => {
             this.props.history.push(`/login`)
         })
+    }
+
+    componentDidMount(newCmd) {
+        /*axios.get('api/json/commande')
+        .then(res => {
+            console.log(res)
+            const commandes = res.data
+            this.setState({ commandes:commandes })
+        })
+        .catch(err => {
+            console.log(err)
+        })*/ 
+    axios.post("https://pos.globalfoodsoft.com/pos/order/pop", newCmd, {
+      headers: { 
+        "Content-Type": "application/json",
+        Authorization: "4x5dsYmZhY5Vy6o3O"
+       },
+    })
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
     }
 
     render () {
